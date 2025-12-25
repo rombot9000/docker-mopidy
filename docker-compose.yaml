@@ -1,0 +1,17 @@
+services:
+  mopidy:
+    image: local/mopidy
+    container_name: mopidy
+    devices:
+      - "/dev/snd"
+    ports:
+      - "8080:8080"
+    post_start:
+      - command: mopidy local scan
+        user: root
+    restart: 'unless-stopped'
+    volumes:
+      - ~/.config/mopidy:/config
+      - ~/.cache/mopidy:/cache
+      - ~/.local/share/mopidy:/data
+      - /srv/media/music:/music
