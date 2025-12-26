@@ -1,6 +1,9 @@
 services:
   mopidy:
-    image: local/mopidy
+    build:
+      context: .
+      tags:
+        - "local/mopidy:latest"
     container_name: mopidy
     devices:
       - "/dev/snd"
@@ -9,7 +12,7 @@ services:
     post_start:
       - command: mopidy local scan
         user: root
-    restart: 'unless-stopped'
+    restart: "unless-stopped"
     volumes:
       - ~/.config/mopidy:/config
       - ~/.cache/mopidy:/cache
