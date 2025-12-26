@@ -46,7 +46,6 @@ ENV XDG_DATA_DIR=/root/.local/share
 RUN mkdir /cache && \
     mkdir /config && \
     mkdir /data && \
-    mkdir /music && \
     mkdir -p $XDG_CACHE_DIR && \
     mkdir -p $XDG_CONFIG_DIR && \
     mkdir -p $XDG_DATA_DIR && \

@@ -14,4 +14,7 @@ services:
       - ~/.config/mopidy:/config
       - ~/.cache/mopidy:/cache
       - ~/.local/share/mopidy:/data
-      - /srv/media/music:/music
+      - type: bind
+        source: /srv/media/music
+        target: /music
+        read_only: true
