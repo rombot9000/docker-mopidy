@@ -26,3 +26,10 @@ services:
         source: /srv/media/music
         target: /music
         read_only: true
+    healthcheck:
+      # Note: --spider cannot be used as mopidy does not allow HEAD requests
+      test: ["CMD-SHELL", "wget -nv -t1 -O/dev/null http://localhost:${EXPOSE_PORT} || exit 1"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
