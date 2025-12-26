@@ -1,14 +1,19 @@
 services:
   mopidy:
+    environment:
+      - EXPOSE_PORT=${EXPOSE_PORT}
+      - PUBLISH_PORT=${PUBLISH_PORT}
     build:
       context: .
       tags:
         - "local/mopidy:latest"
+      args:
+        - EXPOSE_PORT=${EXPOSE_PORT}
     container_name: mopidy
     devices:
       - "/dev/snd"
     ports:
-      - "8080:8080"
+      - "${PUBLISH_PORT}:${EXPOSE_PORT}"
     post_start:
       - command: mopidy local scan
         user: root

@@ -53,8 +53,8 @@ RUN mkdir /cache && \
     ln -s /config ${XDG_CONFIG_DIR}/mopidy && \
     ln -s /data ${XDG_DATA_DIR}/mopidy
 
-# Port that mopidy is hosted on
-EXPOSE 8080
+# Port that mopidy listens on
+EXPOSE ${EXPOSE_PORT}
 
 # See https://docs.mopidy.com/latest/command/
 CMD ["/usr/bin/mopidy"]
