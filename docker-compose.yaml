@@ -19,15 +19,22 @@ services:
         user: root
     restart: "unless-stopped"
     volumes:
+      # See https://docs.mopidy.com/latest/config/#core-configuration
+      # Adjust keys to use different host machine folders.
+      # This preset uses the default folders.
+      # The mopidy config file mopidy.conf needs to be placed 
+      # inside the host folder mounted to /config.
       - ~/.config/mopidy:/config
       - ~/.cache/mopidy:/cache
       - ~/.local/share/mopidy:/data
+      # Add media folders using bind mounts.
+      # The target locations need to be referenced in the mopidy.conf file.
       - type: bind
         source: /srv/media/music
         target: /music
         read_only: true
     healthcheck:
-      # Note: --spider cannot be used as mopidy does not allow HEAD requests
+      # Note: --spider cannot be used as mopidy does not allow HEAD requests.
       test: ["CMD-SHELL", "wget -nv -t1 -O/dev/null http://localhost:${EXPOSE_PORT} || exit 1"]
       interval: 1m30s
       timeout: 30s
