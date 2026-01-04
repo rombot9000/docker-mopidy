@@ -11,7 +11,7 @@ services:
         - EXPOSE_PORT=${EXPOSE_PORT}
     container_name: mopidy
     devices:
-      - "/dev/snd"
+      - "/dev/snd:/dev/snd"
     ports:
       - "${PUBLISH_PORT}:${EXPOSE_PORT}"
     post_start:

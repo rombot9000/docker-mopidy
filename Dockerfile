@@ -19,7 +19,9 @@ RUN apt-get update && \
         wget \
         python3 \
         pipx \
-        gstreamer1.0-libav
+        alsa-utils \
+        gstreamer1.0-libav \
+        gstreamer1.0-alsa
 
 # For mopidy installion instructions, see:
 #   https://docs.mopidy.com/stable/installation/debian

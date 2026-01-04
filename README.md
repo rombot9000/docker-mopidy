@@ -76,6 +76,29 @@ media_dir = /music
 ```
 with */music* being the bind mount target.
 
+#### Output device
+The container expects you to use alsa for sound output,
+```ini
+[audio]
+output = alsasink
+```
+If a different card than the default one should be used, use the following
+```ini
+[audio]
+output = alsasink device=hw:<card name>
+```
+where the `card name` can be obtained via
+```sh
+aplay -l
+```
+which yields
+```sh
+card 0: <card name 0> ...
+...
+card 1: <card name 1>...
+...
+```
+
 ## Control container
 The container can be started with
 ```sh
