@@ -27,6 +27,8 @@ services:
       - ~/.config/mopidy:/config
       - ~/.cache/mopidy:/cache
       - ~/.local/share/mopidy:/data
+      # Persist iris data folder, adjust if necessary
+      - ~/.local/share/iris:/iris
       # Add media folders using bind mounts.
       # The target locations need to be referenced in the mopidy.conf file.
       - type: bind
