@@ -112,3 +112,9 @@ After changes to the *Dockerfile*, the image needs to be rebuild with
 ```sh
 docker compose build
 ```
+
+## Run interactive shell
+To open an interactive shell in a running container, use the following command:
+```
+docker exec -ti mopidy /bin/bash
+```
