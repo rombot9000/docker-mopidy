@@ -40,6 +40,10 @@ RUN apt-get update && \
         mopidy-local \
         mopidy-scrobbler
 
+# Install custom client
+ARG PATH_TO_MATERIAL_CLIENT=/tmp/Mopidy-Material-Client-0.1.0.tar.gz
+COPY files/Mopidy-Material-Client-0.1.0.tar.gz ${PATH_TO_MATERIAL_CLIENT}
+RUN python3 -m pip install --break-system-packages ${PATH_TO_MATERIAL_CLIENT}
 
 # Create needed folders, see:
 # https://docs.mopidy.com/stable/config/#core-configuration
