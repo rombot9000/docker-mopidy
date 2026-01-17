@@ -40,8 +40,6 @@ RUN apt-get update && \
         mopidy-local \
         mopidy-scrobbler
 
-RUN python3 -m pip install --break-system-packages \
-        Mopidy-Iris
 
 # Create needed folders, see:
 # https://docs.mopidy.com/stable/config/#core-configuration
@@ -59,6 +57,10 @@ RUN mkdir /cache && \
     ln -s /config ${XDG_CONFIG_DIR}/mopidy && \
     ln -s /data ${XDG_DATA_DIR}/mopidy && \
     ln -s /iris ${XDG_DATA_DIR}/iris
+
+# Install extensions via pip
+RUN python3 -m pip install --break-system-packages \
+        Mopidy-Iris
 
 # Port that mopidy listens on
 EXPOSE ${EXPOSE_PORT}
