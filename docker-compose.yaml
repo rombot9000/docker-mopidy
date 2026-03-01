@@ -6,6 +6,7 @@ services:
     build:
       context: .
       tags:
+        - "local/mopidy:0.2.1"
         - "local/mopidy:latest"
       args:
         - EXPOSE_PORT=${EXPOSE_PORT}

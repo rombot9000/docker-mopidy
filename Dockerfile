@@ -41,7 +41,7 @@ RUN apt-get update && \
         mopidy-scrobbler
 
 # Install custom client
-ARG PATH_TO_MATERIAL_CLIENT=/tmp/Mopidy-Material-Client-0.1.0.tar.gz
+ARG PATH_TO_MATERIAL_CLIENT=/tmp/Mopidy-Material-Client-0.2.1.tar.gz
 COPY files/Mopidy-Material-Client-0.1.0.tar.gz ${PATH_TO_MATERIAL_CLIENT}
 RUN python3 -m pip install --break-system-packages ${PATH_TO_MATERIAL_CLIENT}
 
