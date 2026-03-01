@@ -15,6 +15,7 @@ services:
     ports:
       - "${PUBLISH_PORT}:${EXPOSE_PORT}"
     post_start:
+      # Do a library scan on startup
       - command: mopidy local scan
         user: root
     restart: "unless-stopped"

@@ -63,3 +63,6 @@ password = <password>
 #snapcast_host = localhost
 #snapcast_port = 1780
 #snapcast_stream = Default
+
+[material]
+enabled = true

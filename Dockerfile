@@ -70,4 +70,4 @@ RUN python3 -m pip install --break-system-packages \
 EXPOSE ${EXPOSE_PORT}
 
 # See https://docs.mopidy.com/latest/command/
-CMD ["/usr/bin/mopidy"]
+CMD ["/usr/bin/mopidy", "-vv"]
